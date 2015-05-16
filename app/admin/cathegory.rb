@@ -15,5 +15,20 @@ ActiveAdmin.register Cathegory do
 #   permitted
 # end
 
+  show do |cathegory|
+    attributes_table do
+      row :name
+
+    # end
+    # panel "Books" do
+      table_for cathegory.books do
+        column :title
+        column :description
+        column :year
+        column :publisher
+      end
+    end
+
+  end
 
 end

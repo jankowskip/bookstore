@@ -6,6 +6,8 @@ class CreateBooks < ActiveRecord::Migration
       t.references :publisher, index: true, foreign_key: true
       t.integer :year
 
+
+
       t.timestamps null: false
     end
   end

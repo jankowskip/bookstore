@@ -6,6 +6,17 @@ ActiveAdmin.register Book do
     end
   end
 
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :year
+    column :publisher
+    column :created_at
+    column :updated_at
+    actions
+  end
+
   show do |book|
     attributes_table do
       row :title

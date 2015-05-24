@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Bookstore</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+
+          <section class="middle tab-bar-section">
+            <h1 class="title">Bookstore</h1>
+          </section>
+
+          <% if user_signed_in? %>
+          <section class="right-small">
+            <a class="" href="<%= destroy_user_session_path %>"><i class='icon icon--logout'></i></a>
+          </section>
+          <% end %>
+
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Menu</label></li>
+            <li><a href='<%= books_path %>'>Books</a></li>
+            <li><a href='<%= authors_path %>'>Authors</a></li>
+            <li><a href='<%= publishers_path %>'>Publishers</a></li>
+          </ul>
+        </aside>
+
+        <section class="main-section">
+          <!-- content goes here -->
+          <div class="row">
+            <div class="small-12 columns"><%= yield %></div>
+          </div>
+        </section>
+
+        <a class="exit-off-canvas"></a>
+
+      </div>
+    </div>
+
+  </body>
 </html>

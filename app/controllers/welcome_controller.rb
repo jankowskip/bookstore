@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
   def index
-    authorize! :index, :welcome
+    @books = Book.first(5)
   end
 end

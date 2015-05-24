@@ -1,0 +1,20 @@
+<ul class="breadcrumbs">
+  <li><a href='<%= root_path %>'>Home</a></li>
+  <li><a href='<%= books_path %>'>Books</a></li>
+  <li class="current"><%= @book.title %></li>
+</ul>
+
+<h1><%= @book.title %></h1>
+<ul class='book__authors'>
+  <li class='book__author'>
+    Authors:
+  </li>
+  <% @book.authors.each do |author| %>
+    <li class='book__author'>
+      <a href='<%= author_path(author) %>'>
+        <%= author.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<p><%= @book.description %></p>

@@ -27,6 +27,8 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 #Authorization
 gem 'cancancan', '~> 1.10'
+# Bootstrap
+gem 'foundation-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

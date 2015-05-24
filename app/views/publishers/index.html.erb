@@ -1,0 +1,17 @@
+<ul class="breadcrumbs">
+  <li><a href='<%= root_path %>'>Home</a></li>
+  <li class="current">Publishers</li>
+</ul>
+
+<h1>Publishers</h1>
+<ul class='publishers small-block-grid-3'>
+  <% @publishers.each do |publisher| %>
+    <li class='publisher'>
+      <a href='<%= publisher_path publisher %>'>
+      <div class='panel'>
+        <%= publisher.name %>
+      </div>
+      </a>
+    </li>
+  <% end %>
+</ul>

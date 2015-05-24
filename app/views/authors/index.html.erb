@@ -1,0 +1,17 @@
+<ul class="breadcrumbs">
+  <li><a href='<%= root_path %>'>Home</a></li>
+  <li class="current">Authors</li>
+</ul>
+
+<h1>Authors</h1>
+<ul class='authors small-block-grid-3'>
+  <% @authors.each do |author| %>
+    <li class='author'>
+      <a href='<%= author_path author %>'>
+      <div class='panel'>
+        <%= author.name %>
+      </div>
+      </a>
+    </li>
+  <% end %>
+</ul>

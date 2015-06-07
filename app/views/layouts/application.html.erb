@@ -25,11 +25,13 @@
             <h1 class="title">Bookstore</h1>
           </section>
 
-          <% if user_signed_in? %>
           <section class="right-small">
+          <% if user_signed_in? %>
             <a class="" href="<%= destroy_user_session_path %>"><i class='icon icon--logout'></i></a>
-          </section>
+          <% else %>
+            <a class="" href="<%= new_user_session_path %>"><i class='icon icon--login'></i></a>
           <% end %>
+          </section>
 
         </nav>
 

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :books
+  get 'books/:id/rent' => 'books#rent', as: :rent
+  get 'books/:id/return' => 'books#return', as: :return
   resources :authors
   resources :publishers
 

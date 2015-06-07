@@ -9,8 +9,19 @@
 </div>
 
 <div class="row">
-  <div class="small-4 medium-4 columns">
+  <div class="small-4 medium-4 columns text-center">
     <%= image_tag @book.image.url(:medium) %>
+    <div class='book__actions'>
+      <%if !@book.can_rent? %>
+        <span class='button secondary radius'>No available copies</span>
+      <% elsif can?(:update, @article) %>
+        <%if @book.can_rent? %>
+          <a href="<%= rent_path @book %>" class='button success radius'>Rent this book</a>
+        <% elsif @book.can_return?(current_user) %>
+          <a href="<%= return_path @book %>" class='button radius'>Return this book</a>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="small-8 medium-8 columns">
     <h1><%= @book.title %></h1>

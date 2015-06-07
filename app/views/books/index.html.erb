@@ -4,13 +4,14 @@
 </ul>
 
 <h1>Books</h1>
-<ul class='books small-block-grid-3'>
+<ul class='books small-block-grid-1 medium-block-grid-3'>
   <% @books.each do |book| %>
-    <li class='book'>
+    <li class='books__book'>
       <a href='<%= book_path book %>'>
-      <div class='panel'>
-        <%= book.title %>
-      </div>
+        <%= image_tag book.image.url(:medium) %>
+        <div class='books__book-title'>
+          <%= book.title %>
+        </div>
       </a>
     </li>
   <% end %>

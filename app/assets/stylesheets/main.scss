@@ -1,0 +1,140 @@
+@import 'foundation-icons/foundation-icons';
+@import 'foundation';
+
+.main-section {
+  padding: $panel-padding*2 0;
+}
+
+.off-canvas-wrap {
+  .inner-wrap{
+    min-height: 100vh;
+  }
+}
+
+.tab-bar section {
+    display: block;
+    text-align: center;
+    background-color: $info-color;
+}
+
+.right-small {
+  border-left: none;
+}
+
+.left-small {
+  border-right: none;
+}
+
+.breadcrumbs {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.books-orbit {
+  margin: $panel-padding*2 0;
+  .orbit-prev {
+    transition: all 0.5s;
+    & > span {
+      border-right-color: $tuatara;
+    }
+  }
+  .orbit-next {
+    transition: all 0.5s;
+    & > span {
+      border-left-color: $tuatara;
+    }
+  }
+  .image {
+    float: left;
+    display: inline-block;
+    max-width: 40%;
+  }
+  .description {
+    float: left;
+    display: inline-block;
+    padding: $panel-padding;
+    max-width: 60%;
+  }
+}
+
+.books {
+
+    &__book {
+        padding: $panel-padding !important;
+        text-align: center;
+        transition: all 0.5s;
+        &:hover {
+          background-color: $info-color;
+        }
+        a {
+          text-decoration: none;
+        }
+    }
+
+    &__book-title {
+        padding-top: $panel-padding;
+    }
+
+}
+
+.authors {
+
+    &__author {
+        padding: $panel-padding !important;
+        text-align: center;
+        transition: all 0.5s;
+        &:hover {
+          background-color: $info-color;
+        }
+        a {
+          text-decoration: none;
+        }
+    }
+
+    &__author-name {
+        padding-top: $panel-padding;
+    }
+
+}
+
+.publishers {
+
+    &__publisher {
+        padding: $panel-padding !important;
+        text-align: center;
+        transition: all 0.5s;
+        &:hover {
+          background-color: $info-color;
+        }
+        a {
+          text-decoration: none;
+        }
+    }
+
+    &__publisher-name {
+        padding-top: $panel-padding;
+    }
+
+}
+
+.book {
+  &__authors {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &__author {
+    display: inline-block;
+    padding-right: $panel-padding/2;
+  }
+}
+
+.icon {
+    color: $white;
+
+    &--logout {
+        @extend .fi-power;
+        font-size: $base-font-size*1.5;
+    }
+}

@@ -7,13 +7,21 @@ ActiveAdmin.register Publisher do
 #
 # or
   permit_params do
-    permitted = [:name]
-    end
+    permitted = [:name, :image]
+  end
 # permit_params do
 #   permitted = [:permitted, :attributes]
 #   permitted << :other if resource.something?
 #   permitted
 # end
+
+  form :html => { :enctype => "multipart/form-data" } do |f|
+    f.inputs 'Details' do
+      f.input :name
+      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url, :width => '100px')
+    end
+    f.actions
+  end
 
 
 end

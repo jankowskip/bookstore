@@ -6,9 +6,10 @@
 <h1>Publishers</h1>
 <ul class='publishers small-block-grid-3'>
   <% @publishers.each do |publisher| %>
-    <li class='publisher'>
+    <li class='publishers__publisher'>
       <a href='<%= publisher_path publisher %>'>
-      <div class='panel'>
+      <%= image_tag publisher.image.url(:medium) %>
+      <div class='publishers__publisher-name'>
         <%= publisher.name %>
       </div>
       </a>

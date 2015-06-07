@@ -1,33 +1,54 @@
-<ul class="breadcrumbs">
-  <li class="current">Home</li>
-</ul>
-
-<div class='books-orbit'>
-<ul class='books-orbit__items' data-orbit data-options="slide_number:false;">
-  <% @books.each_with_index do |book, index| %>
-    <li data-orbit-slide="headline-<%= index %>">
-      <div>
-        <div class="row">
-          <div class="small-10 small-centered columns">
-            <h2><%= book.title %></h2>
-            <h3>Subheadline</h3>
-            <a href='<%= book_path book %>' class="button">More</a>
+<div class="row">
+  <div class="small-12 medium-8 columns">
+    <div class='books-orbit'>
+    <ul class='books-orbit__items' data-orbit data-options="slide_number:false;">
+      <% @books.first(3).each_with_index do |book, index| %>
+        <li data-orbit-slide="headline-<%= index %>">
+          <div>
+            <div class="row">
+              <div class="small-10 small-centered columns">
+                <div class='image'>
+                  <%= image_tag book.image.url(:medium) %>
+                </div>
+                <div class='description'>
+                  <h2><%= book.title %></h2>
+                  <p><%= truncate(book.description, length: 80, separator: ' ') %></p>
+                  <a href='<%= book_path book %>' class="">More</a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+  <div class='small-12 medium-4 columns'>
+    <h3>Featured author</h3>
+    <a href='<%= author_path @author %>' class='text-center'>
+      <div>
+        <%= image_tag @author.image.url(:medium) %>
       </div>
-    </li>
-  <% end %>
-</ul>
+      <div class=''>
+        <%= @author.name %>
+      </div>
+    </a>
+  </div>
 </div>
 
-<ul class='books small-block-grid-3'>
+<ul class='books small-block-grid-1 medium-block-grid-3'>
   <% @books.each do |book| %>
-    <li class='book'>
+    <li class='books__book'>
       <a href='<%= book_path book %>'>
-        <div class='panel'>
+        <%= image_tag book.image.url(:medium) %>
+        <div class='books__book-title'>
           <%= book.title %>
         </div>
       </a>
     </li>
   <% end %>
+  
 </ul>
+<div class='text-center'>
+  <a href='<%= books_path %>'>More</a>
+</div>

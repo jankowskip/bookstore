@@ -6,9 +6,10 @@
 <h1>Authors</h1>
 <ul class='authors small-block-grid-3'>
   <% @authors.each do |author| %>
-    <li class='author'>
+    <li class='authors__author'>
       <a href='<%= author_path author %>'>
-      <div class='panel'>
+      <%= image_tag author.image.url(:medium) %>
+      <div class='authors__author-name'>
         <%= author.name %>
       </div>
       </a>

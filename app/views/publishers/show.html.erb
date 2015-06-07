@@ -1,17 +1,18 @@
 <ul class="breadcrumbs">
   <li><a href='<%= root_path %>'>Home</a></li>
   <li><a href='<%= publishers_path %>'>Publishers</a></li>
-  <li class="current"><%= @publisher.title %></li>
+  <li class="current"><%= @publisher.name %></li>
 </ul>
 
 <h1><%= @publisher.name %></h1>
-<ul class='books small-block-grid-3'>
+<ul class='books small-block-grid-2 medium-block-grid-3'>
   <% @publisher.books.each do |book| %>
-    <li class='book'>
+    <li class='books__book'>
       <a href='<%= book_path book %>'>
-      <div class='panel'>
-        <%= book.title %>
-      </div>
+        <%= image_tag book.image.url(:medium) %>
+        <div class='books__book-title'>
+          <%= book.title %>
+        </div>
       </a>
     </li>
   <% end %>

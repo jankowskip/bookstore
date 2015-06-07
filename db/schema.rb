@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523144745) do
+ActiveRecord::Schema.define(version: 20150606212040) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -32,8 +32,12 @@ ActiveRecord::Schema.define(version: 20150523144745) do
     t.string   "name"
     t.text     "bio"
     t.integer  "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "authors_books", id: false, force: :cascade do |t|
@@ -56,8 +60,12 @@ ActiveRecord::Schema.define(version: 20150523144745) do
     t.text     "description"
     t.integer  "publisher_id"
     t.integer  "year"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "books", ["publisher_id"], name: "index_books_on_publisher_id"
@@ -75,8 +83,12 @@ ActiveRecord::Schema.define(version: 20150523144745) do
 
   create_table "publishers", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

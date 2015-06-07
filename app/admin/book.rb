@@ -25,6 +25,9 @@ ActiveAdmin.register Book do
       row :publisher
       row :cathegories
       row :authors
+      row "Image" do
+        image_tag(book.image.url(:thumb))
+      end
     end
     panel "Authors" do
        book.authors.each do |author|
@@ -39,12 +42,13 @@ ActiveAdmin.register Book do
     end
   end
 
-  form do |f|
+  form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs 'Details' do
       f.input :title
       f.input :description
       f.input :year
       f.input :publisher, :as => :select, :collection => Publisher.all
+      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url, :width => '100px')
     end
     f.inputs 'Cathegories' do
       f.input :cathegories, :as => :check_boxes, collection: Cathegory.all

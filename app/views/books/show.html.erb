@@ -1,20 +1,31 @@
-<ul class="breadcrumbs">
-  <li><a href='<%= root_path %>'>Home</a></li>
-  <li><a href='<%= books_path %>'>Books</a></li>
-  <li class="current"><%= @book.title %></li>
-</ul>
+<div class="row">
+  <div class="small-12 columns">
+    <ul class="breadcrumbs">
+      <li><a href='<%= root_path %>'>Home</a></li>
+      <li><a href='<%= books_path %>'>Books</a></li>
+      <li class="current"><%= @book.title %></li>
+    </ul>
+  </div>
+</div>
 
-<h1><%= @book.title %></h1>
-<ul class='book__authors'>
-  <li class='book__author'>
-    Authors:
-  </li>
-  <% @book.authors.each do |author| %>
-    <li class='book__author'>
-      <a href='<%= author_path(author) %>'>
-        <%= author.name %>
-      </a>
-    </li>
-  <% end %>
-</ul>
-<p><%= @book.description %></p>
+<div class="row">
+  <div class="small-4 medium-4 columns">
+    <%= image_tag @book.image.url(:medium) %>
+  </div>
+  <div class="small-8 medium-8 columns">
+    <h1><%= @book.title %></h1>
+    <ul class='book__authors'>
+      <li class='book__author'>
+        Authors:
+      </li>
+      <% @book.authors.each do |author| %>
+        <li class='book__author'>
+          <a href='<%= author_path(author) %>'>
+            <%= author.name %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+    <p><%= @book.description %></p>
+  </div>
+</div>

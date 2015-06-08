@@ -12,14 +12,16 @@
   <div class="small-4 medium-4 columns text-center">
     <%= image_tag @book.image.url(:medium) %>
     <div class='book__actions'>
-      <%if !@book.can_rent? %>
-        <span class='button secondary radius'>No available copies</span>
-      <% elsif can?(:update, @article) %>
+      <% if can?(:update, @book) %>
         <%if @book.can_rent? %>
           <a href="<%= rent_path @book %>" class='button success radius'>Rent this book</a>
         <% elsif @book.can_return?(current_user) %>
           <a href="<%= return_path @book %>" class='button radius'>Return this book</a>
+        <% else %>
+        <span class='button secondary radius'>No available copies</span>
         <% end %>
+      <% elsif !@book.can_rent? %>
+        <span class='button secondary radius'>No available copies</span>
       <% end %>
     </div>
   </div>

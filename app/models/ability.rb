@@ -24,6 +24,8 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.admin?
       can :manage, :all
+    elsif user.user?
+      can :update, Book
     else
       can :read, :all
     end
